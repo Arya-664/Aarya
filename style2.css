@@ -1,0 +1,15 @@
+body {
+  background-color: #pink; 
+  font-family: Arial; 
+}
+
+a:link {
+  color: #d326a8; 
+}
+
+a:visited {
+  color: #c5b736; 
+}
+
+a:hover {
+  color: #378337; }

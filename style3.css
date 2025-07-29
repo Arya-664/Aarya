@@ -1,0 +1,15 @@
+body {
+  background-color: #red; 
+  font-family: Arial; 
+}
+
+a:link {
+  color: #3fcfe9; 
+}
+
+a:visited {
+  color: #6e6ee6; 
+}
+
+a:hover {
+  color: #d311da; }
