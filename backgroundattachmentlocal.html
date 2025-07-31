@@ -1,0 +1,37 @@
+<html><head><style>
+    .first{
+        background-image: url("download(1).jpg");
+        background-repeat: no-repeat;
+        background-position: left top;
+        margin-right: 200px;
+        background-attachment: scroll;
+    }
+    .second{
+        background-image: url("R.jpg");
+        background-repeat: no-repeat;
+        background-position: left top;
+        margin-right: 200px;
+        background-attachment: local;
+    }
+</style></head>
+
+<body>
+<h1>Background Attachment local property</h1>
+<div class="first" style="overflow-y:scroll;width:150px; height:100px">
+Background-attachment: scroll. The background image does not move with the scroll action.
+<p>The background image does not move with the scroll action.</p>
+<p>The background image does not move with the scroll action.</p>
+<p>The background image does not move with the scroll action.</p>
+<p>The background image does not move with the scroll action.</p>
+<p>The background image does not move with the scroll action.</p>
+</div>
+<br>
+<div class="second" style="overflow-y:scroll;width:150px; height:100px">
+Background-attachment: local. The background image moves with the scroll action.
+<p>The background image moves with the scroll action.</p>
+<p>The background image moves with the scroll action.</p>
+<p>The background image moves with the scroll action.</p>
+<p>The background image moves with the scroll action.</p>
+<p>The background image moves with the scroll action.</p>
+</div>
+</body></html>
