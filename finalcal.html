@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Purple Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f3e8ff;
+      margin: 0;
+    }
+
+    .calculator {
+      background: #e5d4ff;
+      background-image: url('sky.jpg');
+
+
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 360px;
+    }
+
+    .display {
+      width: 100%;
+      height: 60px;
+      background: #fff;
+      border-radius: 10px;
+      text-align: right;
+      padding: 10px;
+      font-size: 2em;
+      margin-bottom: 15px;
+      border: none;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 60px;
+      font-size: 1.4em;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    /* Shades of purple for number buttons */
+    .num1 { background: #d1b3ff; }
+    .num2 { background: #c29fff; }
+    .num3 { background: #b38aff; }
+    .num4 { background: #a476ff; }
+    .num5 { background: #9561ff; }
+    .num6 { background: #854dff; }
+    .num7 { background: #7638ff; }
+    .num8 { background: #6724ff; }
+    .num9 { background: #5810ff; }
+    .num0 { background: #4a00e0; }
+
+    /* Function buttons */
+    .operator { background: #3c0074; }
+    .equal    { background: #290052; }
+    .clear    { background: #1f003f; }
+    .mod      { background: #370057; }
+    .exp      { background: #5c00a3; }
+  </style>
+</head>
+<body>
+
+<div class="calculator"> 
+<h3 align ="center"> ARITHMETIC OPERATOR CALCULATOR</h3>
+  <input type="text" id="display" class="display" disabled>
+  <div class="buttons">
+    <button class="num7" onclick="append('7')">7</button>
+    <button class="num8" onclick="append('8')">8</button>
+    <button class="num9" onclick="append('9')">9</button>
+    <button class="operator" onclick="append('/')">÷</button>
+    <button class="mod" onclick="append('%')">%</button>
+
+    <button class="num4" onclick="append('4')">4</button>
+    <button class="num5" onclick="append('5')">5</button>
+    <button class="num6" onclick="append('6')">6</button>
+    <button class="operator" onclick="append('*')">×</button>
+    <button class="exp" onclick="append('^')">**</button>
+
+    <button class="num1" onclick="append('1')">1</button>
+    <button class="num2" onclick="append('2')">2</button>
+    <button class="num3" onclick="append('3')">3</button>
+    <button class="operator" onclick="append('-')">−</button>
+    <button class="operator" onclick="increment()">++</button>
+
+    <button class="num0" onclick="append('0')">0</button>
+    <button class="clear" onclick="clearDisplay()">C</button>
+    <button class="equal" onclick="calculate()">=</button>
+    <button class="operator" onclick="append('+')">+</button>
+    <button class="operator" onclick="decrement()">--</button>
+    <br><br><br>
+
+
+   <hr>
+    <h5 align="left"> Arya Hegde</h5>
+  </div>
+</div>
+
+
+<script>
+  function append(value) {
+    document.getElementById('display').value += value;
+  }
+
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+
+  function increment() {
+    let display = document.getElementById('display');
+    let val = parseFloat(display.value);
+    if (!isNaN(val)) {
+      display.value = val + 1;
+    }
+  }
+
+  function decrement() {
+    let display = document.getElementById('display');
+    let val = parseFloat(display.value);
+    if (!isNaN(val)) {
+      display.value = val - 1;
+    }
+  }
+
+  function calculate() {
+    let expression = document.getElementById('display').value;
+
+    // Replace ^ with ** for exponentiation
+    expression = expression.replace(/(\d+)\s*\^\s*(\d+)/g, 'Math.pow($1,$2)');
+
+    try {
+      document.getElementById('display').value = eval(expression);
+    } catch {
+      document.getElementById('display').value = 'Error';
+    }
+  }
+</script>
+
+</body>
+</html>
